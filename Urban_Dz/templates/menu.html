@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <header>
+        {% block pagename%}
+        <h1>{{ title }}</h1>
+        {% endblock pagename%}
+    </header>
+
+    <nav>
+        {% block menu %}
+        <h3><a href="http://127.0.0.1:8000/platform/">Главная</a></h3>
+        <h3><a href="http://127.0.0.1:8000/platform/game/">Магазин</a></h3>
+        <h3><a href="http://127.0.0.1:8000/platform/cart/">Корзина</a></h3>
+        {% endblock menu %}
+    </nav>
+
+    <main>
+        {% block content%}
+        <p>{{ text }}</p>
+        {% endblock content%}
+        </main>
+
+</body>
