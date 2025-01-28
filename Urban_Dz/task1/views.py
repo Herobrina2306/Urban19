@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .forms import UserRegistr
 from django.http import HttpResponse
-from .models import Game, Buyer
+from .models import Game, Buyer, News
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -83,4 +84,15 @@ def donat(request):
         'text': text,
     }
     return render(request, 'donat.html', context)
+
+def news(request):
+    new = News.objects.all()
+    news = Paginator(new, 5)
+    page_number = request.GET.get('page')
+    page_obj = news.get_page(page_number)
+    context = {
+        'page_obj': page_obj,
+        'news': news
+    }
+    return render(request, 'news.html', context)
 

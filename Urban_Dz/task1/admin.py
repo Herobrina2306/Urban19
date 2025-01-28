@@ -17,3 +17,7 @@ class BuyerAdmin(admin.ModelAdmin):
     list_filter = ('balanse', 'age')
     readonly_fields = ('balanse',)
     list_per_page = 30
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_filter = ('date', )
