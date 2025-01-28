@@ -87,12 +87,11 @@ def donat(request):
 
 def news(request):
     new = News.objects.all()
-    news = Paginator(new, 5)
+    paginator = Paginator(new, 5)
     page_number = request.GET.get('page')
-    page_obj = news.get_page(page_number)
+    page_obj = paginator.get_page(page_number)
     context = {
-        'page_obj': page_obj,
-        'news': news
+        'news': page_obj
     }
     return render(request, 'news.html', context)
 
